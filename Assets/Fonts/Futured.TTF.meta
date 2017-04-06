@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 47107d4e0c1c92f43904cddb758819a7
+timeCreated: 1491124911
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futured
+  fontNames:
+  - Futured
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

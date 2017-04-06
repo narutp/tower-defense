@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour {
 		
 		if (!doMovement)
 			return;
-
+		/*
 		if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBoarderThickness) {
 			transform.Translate (Vector3.forward * panSpeed * Time.deltaTime, Space.World);
 		}
@@ -42,5 +42,6 @@ public class CameraController : MonoBehaviour {
 		pos.y = Mathf.Clamp (pos.y, minY, maxY);
 		pos.z = Mathf.Clamp (pos.z, minZ, maxZ);
 		transform.position = pos;
+		*/
 	}
 }
