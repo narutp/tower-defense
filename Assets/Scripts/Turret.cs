@@ -18,9 +18,12 @@ public class Turret : MonoBehaviour {
 	[Header("Use Laser")]
 	public bool useLaser = false;
 	public int damageOverTime = 50;
+	public float slowPercent = 0.5f;
 	public LineRenderer lineRenderer;
 	public ParticleSystem impactEffect;
 	public Light lightEffect;
+	public AudioClip laserClip;
+	public AudioSource laserSource;
 
 	[Header("Unity Setup Fields")]
 
@@ -33,6 +36,7 @@ public class Turret : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
+		laserSource = GetComponent<AudioSource> ();
 	}
 
 	void UpdateTarget() {
@@ -67,6 +71,7 @@ public class Turret : MonoBehaviour {
 					lightEffect.enabled = false;
 				}
 			}
+			laserSource.Stop ();
 			return;
 		}
 
@@ -74,6 +79,9 @@ public class Turret : MonoBehaviour {
 
 		if (useLaser) {
 			Laser ();
+			if (!laserSource.isPlaying) {
+				laserSource.PlayOneShot (laserClip, 0.3f);
+			}
 		} else {
 			if (fireCountdown <= 0f) {
 				Shoot ();
@@ -94,6 +102,7 @@ public class Turret : MonoBehaviour {
 	void Laser() {
 
 		targetEnemy.TakeDamage (damageOverTime * Time.deltaTime);
+		targetEnemy.Slow (slowPercent);
 
 		if (!lineRenderer.enabled) {
 			lineRenderer.enabled = true;

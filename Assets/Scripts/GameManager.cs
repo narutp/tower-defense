@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	private bool gameEnded = false;
-	
-	// Update is called once per frame
-	void Update () {
+	public static bool GameIsOver;
+	public GameObject gameOverUI;
+	public GameObject winUI;
+	public AudioClip gameOverClip;
+	public AudioSource gameOverSource;
 
-		if (gameEnded) {
+	void Start() {
+		GameIsOver = false;
+		gameOverSource = GetComponent<AudioSource> ();
+	}
+
+	void Update () {
+		if (GameIsOver) {
 			return;
 		}
 		if (PlayerStats.Lives <= 0) {
 			EndGame ();
 		}
+		if (PlayerStats.Rounds >= 3) {
+
+		}
 	}
 
 	void EndGame() {
-		gameEnded = true;
-		Debug.Log ("Game Over");
+		gameOverSource.PlayOneShot (gameOverClip, 1f);
+		GameIsOver = true;
+		gameOverUI.SetActive (true);
+	}
+
+	void WinGame() {
+		gameOverSource.PlayOneShot (gameOverClip, 1f);
+		GameIsOver = true;
+		winUI.SetActive (true);
+
 	}
 }

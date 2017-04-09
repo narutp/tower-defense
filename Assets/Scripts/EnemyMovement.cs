@@ -22,6 +22,8 @@ public class EnemyMovement : MonoBehaviour {
 		if (Vector3.Distance(transform.position, target.position) <= 0.4f) {
 			GetNextWayPoint ();
 		}
+
+		enemy.speed = enemy.startSpeed;
 	}
 
 	void GetNextWayPoint() {
@@ -36,6 +38,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void EndPath() {
 		PlayerStats.Lives--;
+		WaveSpawner.EnemiesAlive--;
 		Destroy (gameObject);
 	}
 

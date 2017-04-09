@@ -13,6 +13,12 @@ public class Bullet : MonoBehaviour {
 		target = _target;
 	}
 
+	void Start() {
+		if (explosionRadius > 0) {
+			GetComponent<AudioSource>().Play();
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 
