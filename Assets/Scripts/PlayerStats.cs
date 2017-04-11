@@ -14,6 +14,6 @@ public class PlayerStats : MonoBehaviour {
 	void Start() {
 		Money = startMoney;
 		Lives = startLives;
-		Rounds = 0;
+		Rounds = 1;
 	}
 }

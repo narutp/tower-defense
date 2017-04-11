@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour {
 		if (PlayerStats.Lives <= 0) {
 			EndGame ();
 		}
-		if (PlayerStats.Rounds >= 3) {
-
+		if (PlayerStats.Rounds > 10) {
+			WinGame ();
 		}
 	}
 
